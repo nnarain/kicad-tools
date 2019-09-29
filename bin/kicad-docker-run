@@ -5,11 +5,12 @@ fi
 
 DOCKER_CMD_PATH="${DOCKER_CMD_PATH:-docker}"
 DOCKER_CONTAINER="${DOCKER_CONTAINER:-kicad-automation}"
+DOCKER_INTERACTIVE="${DOCKER_INTERACTIVE:---interactive --tty}"
 
 DOCKER_RUN=${DOCKER_SUDO} ${DOCKER_CMD_PATH} \
  	run \
 	--rm \
-	--interactive --tty \
+	${DOCKER_INTERACTIVE} \
 	${DOCKER_VOLUMES} \
 	${DOCKER_ENVIRONMENT} \
 	${DOCKER_CONTAINER} \
