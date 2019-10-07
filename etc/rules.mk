@@ -10,6 +10,8 @@ PROJECT_ABS_PATH := $(DOCKER_VISIBLE_PATH)/$(PROJECT_PATH)
 BOARD_RELATIVE_PATH := $(PROJECT_PATH)/$(BOARD).kicad_pcb
 SCHEMATIC_RELATIVE_PATH := $(PROJECT_PATH)/$(BOARD).sch
 
+# Libraries
+KICAD_LIB_DIR ?= $(MAKEFILE_PATH)
 
 # Output configuration
 
@@ -19,7 +21,8 @@ OUTPUT_PATH := $(PROJECT_ABS_PATH)/$(OUTPUT_BASEDIR)
 
 
 export DOCKER_VOLUMES := --volume $(DOCKER_VISIBLE_PATH):/kicad-project: \
-   		  --volume $(OUTPUT_PATH):/output: 
+   		  --volume $(OUTPUT_PATH):/output: \
+		  --volume $(KICAD_LIB_DIR):/kicad-libs: 
 
 # Infrastructure config
 

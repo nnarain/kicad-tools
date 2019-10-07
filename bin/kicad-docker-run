@@ -11,6 +11,7 @@ DOCKER_RUN=${DOCKER_SUDO} ${DOCKER_CMD_PATH} \
 	--rm \
 	--interactive --tty \
 	${DOCKER_VOLUMES} \
+	${DOCKER_ENVIRONMENT} \
 	${DOCKER_CONTAINER} \
 	$@
 
